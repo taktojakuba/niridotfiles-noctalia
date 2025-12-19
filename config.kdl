@@ -7,10 +7,11 @@ input {
     }
     focus-follows-mouse max-scroll-amount="0%"
 }
-output "eDP-1"{
-	mode "1920x1080@144.00"
-	position x=-1920 y=100
-}
+//your output if you want to change deafult
+//output "eDP-1"{
+//	mode "1920x1080@144.00"
+//	position x=-1920 y=100
+//}
 layout {
     gaps 16
     center-focused-column "never"
@@ -117,4 +118,5 @@ layer-rule {
   match namespace="^noctalia-overview*"
   place-within-backdrop true
 }
-include "./noctalia.kdl"
+//uncomment this if you already have noctalia-shell seted up if not delete this bc noctalia will add it anyways
+//include "./noctalia.kdl"
