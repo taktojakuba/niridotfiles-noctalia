@@ -2,7 +2,6 @@ spawn-at-startup "qs" "-c" "noctalia-shell"
 prefer-no-csd
 input {
     keyboard {
-        // Enable numlock on startup, omitting this setting disables it.
         numlock
     }
     focus-follows-mouse max-scroll-amount="0%"
@@ -99,8 +98,6 @@ binds {
 
     Mod+W { maximize-column; }
     Mod+Shift+W { fullscreen-window; }
-
-    // Move the focused window between the floating and the tiling layout.
     Mod+F       { toggle-window-floating; }
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
@@ -113,7 +110,6 @@ window-rule {
 debug {
   honor-xdg-activation-with-invalid-serial
 }
-// Set the overview wallpaper on the backdrop.
 layer-rule {
   match namespace="^noctalia-overview*"
   place-within-backdrop true
