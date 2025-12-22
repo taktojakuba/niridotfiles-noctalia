@@ -2,24 +2,35 @@
 
 set -e
 
-#checking for yay
-echo "checking if yay is installed "
+# checking for yay
+echo "checking if yay is installed"
 if ! command -v yay &> /dev/null; then
-    echo "yay is not installed installing it...."
+    echo "yay is not installed, installing it..."
     git clone https://aur.archlinux.org/yay.git
     cd yay
     makepkg -si
-    cd
+    cd ..
 fi
-#niri and noctalia installation
-echo "installing niri and noctalia"
+echo "yay is installed"
+
+# install niri and noctalia-shell
+echo "installing niri and noctalia-shell"
 yay -S --needed --noconfirm niri noctalia-shell
-#cd into repo 
+
+# clone repo if it doesn't exist
+if [ ! -d "niridotfiles-noctalia" ]; then
+    git clone https://github.com/taktojakuba/niridotfiles-noctalia.git
+fi
+
+# cd into repo
 cd niridotfiles-noctalia
-#making niri direcotry
-echo "creating directory ~/.config/niri if doesnt exist"
+
+# make niri directory if doesn't exist
+echo "creating directory ~/.config/niri if it doesn't exist"
 mkdir -p ~/.config/niri
-#coping config from repo to niri
+
+# copy config
 echo "copying config.kdl from repo folder"
 cp config.kdl ~/.config/niri/
+
 echo "all done"
