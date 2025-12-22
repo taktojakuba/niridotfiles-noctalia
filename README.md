@@ -1,5 +1,5 @@
 ### My niri dotfiles with noctalia-shell
-it comes with installer so you dont need to anything else than cloning this repo and runing installer.sh
+# it comes with installer so you dont need to anything else than cloning this repo and runing installer.sh
 
 ### how to run installer ? 
 
