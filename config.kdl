@@ -1,16 +1,21 @@
+//lauch noctalia-shell at startup
 spawn-at-startup "qs" "-c" "noctalia-shell"
+//disable control bars for windows close minimise maximise etc..
 prefer-no-csd
+//keyboard settings
 input {
     keyboard {
         numlock
     }
+//focus following mouse 
     focus-follows-mouse max-scroll-amount="0%"
 }
-//your output if you want to change deafult
+//use niri msg outputs and change your output
 //output "eDP-1"{
 //	mode "1920x1080@144.00"
 //	position x=-1920 y=100
 //}
+//postitioning
 layout {
     gaps 16
     center-focused-column "never"
@@ -19,6 +24,7 @@ layout {
       proportion 0.5
       proportion 0.66667
     }
+//borders around windows 
     default-column-width { proportion 0.5; }
     focus-ring {
         off
@@ -29,6 +35,7 @@ layout {
         active-color "#ffffff"
         inactive-color "#505050"
     }
+//shadows for windows 
     shadow {
         softness 30
         spread 5
@@ -36,47 +43,51 @@ layout {
         color "#0007"
     }
 }
+//show keybinds delete skip-at-startup if you want them to show 
 hotkey-overlay {
     skip-at-startup
 }
-
+//screnshots
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
-
+//binds
 binds {
-    Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
-    Mod+E hotkey-overlay-title="Open a File manager" { spawn "nautilus"; }
+    //spawning programs spawn-sh allows you to use launch options for programs and spawn just spawns with program name
+    Mod+T { spawn "alacritty"; }
+    Mod+E { spawn "nautilus"; }
+    //app laucher 
     Mod+A { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
+    //session menu
     Mod+Escape {spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle";}
-    // Audio
+    // Audio controls
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume increase"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume decrease"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume muteOutput"; }
-
+    //overview mode
     Mod+Tab repeat=false { toggle-overview; }
-
+    //window close 
     Mod+Q repeat=false { close-window; }
-
+    //swiching between difrent windows 
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }
     Mod+Up    { focus-window-up; }
     Mod+Right { focus-column-right; }
-
+    //moving windows around workspace
     Mod+Shift+Left  { move-column-left; }
     Mod+Shift+Down  { move-window-down; }
     Mod+Shift+Up    { move-window-up; }
     Mod+Shift+Right { move-column-right; }
-
+    //switching between difrent monitors 
     Mod+Ctrl+Left  { focus-monitor-left; }
     Mod+Ctrl+Down  { focus-monitor-down; }
     Mod+Ctrl+Up    { focus-monitor-up; }
     Mod+Ctrl+Right { focus-monitor-right; }
-
+    //moving windows around monitors
     Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
     Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
     Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
     Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
-
+    //switching between workspaces
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
     Mod+3 { focus-workspace 3; }
@@ -86,6 +97,7 @@ binds {
     Mod+7 { focus-workspace 7; }
     Mod+8 { focus-workspace 8; }
     Mod+9 { focus-workspace 9; }
+    //moving windows around workspaces
     Mod+Ctrl+1 { move-column-to-workspace 1; }
     Mod+Ctrl+2 { move-column-to-workspace 2; }
     Mod+Ctrl+3 { move-column-to-workspace 3; }
@@ -95,24 +107,28 @@ binds {
     Mod+Ctrl+7 { move-column-to-workspace 7; }
     Mod+Ctrl+8 { move-column-to-workspace 8; }
     Mod+Ctrl+9 { move-column-to-workspace 9; }
-
+    //window operations 
     Mod+W { maximize-column; }
     Mod+Shift+W { fullscreen-window; }
     Mod+F       { toggle-window-floating; }
+    //screenshots
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
+//border radius for windows and cliping them to layout 
 }
 window-rule {
     geometry-corner-radius 4
     clip-to-geometry true
 }
+//for noctalia
+
+//notifications for noctalia 
 debug {
   honor-xdg-activation-with-invalid-serial
+//overview mode blur
 }
 layer-rule {
   match namespace="^noctalia-overview*"
   place-within-backdrop true
 }
-//uncomment this if you already have noctalia-shell seted up if not delete this bc noctalia will add it anyways
-//include "./noctalia.kdl"
