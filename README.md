@@ -26,4 +26,4 @@
 
 # Why was this made?
 ## A friend of mine, who was new to Linux and had been using KDE Plasma for a long time, saw my setup and wanted the same thing. His exact feedback was “ty zaje**te” (Polish for “this is cool”).
-### Instead of walking him through hours of manual configuration, I wrote this script to automate the setup process. The goal is simple: install and replicate my environment on a fresh machine with minimal tinkering and zero guesswork.
+### Instead of walking him through manual configuration, I wrote this script to automate the setup process. The goal is simple: install and replicate my environment on a fresh machine with minimal tinkering and zero guesswork.
