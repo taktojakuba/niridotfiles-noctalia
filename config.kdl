@@ -77,6 +77,8 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 binds {
     // application spawning
     // spawn = direct exec, spawn-sh = shell (allows arguments, pipes, etc.)
+    Mod+BracketLeft { consume-or-expel-window-left; }
+    Mod+BracketRight { consume-or-expel-window-right; }
     Mod+T { spawn "alacritty"; }
     Mod+E { spawn "nautilus"; }
 
