@@ -114,12 +114,11 @@ binds {
     Mod+B { spawn "firefox";}
 
     // application launcher (noctalia)
-    Mod+A { spawn-sh "/home/kuba/.config/rofi/launcher/launcher.sh"; }
-    Mod+D { spawn-sh "/home/kuba/.config/rofi/applets/bin/apps.sh"; }
+    Mod+A { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
     Mod+Y {spawn-sh "qs -c noctalia-shell ipc call wallpaper toggle";}
 
     // session menu (logout, reboot, shutdown)
-    Mod+Escape { spawn-sh "/home/kuba/.config/rofi/powermenu/powermenu.sh"; }
+    Mod+Escape { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
     Mod+L {spawn-sh "	qs -c noctalia-shell ipc call lockScreen lock"; }
     // audio controls (work even when session is locked)
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume increase"; }
