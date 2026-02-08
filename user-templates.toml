@@ -1,0 +1,20 @@
+[config]
+
+
+[templates.kew]
+input_path = "~/.config/noctalia/templates/noctalia.theme"
+output_path = "~/.config/kew/themes/noctalia.theme"
+post_hook = "kew theme noctalia"
+
+[templates.rofi]
+input_path = "~/.config/noctalia/templates/noctalia.rasi"
+output_path = "~/.config/rofi/noctalia.rasi"
+
+[templates.cava]
+input_path = "~/.config/noctalia/templates/cava.ini"
+output_path = "~/.config/cava/themes/noctalia"
+
+[templates.foot]
+input_path = "~/.config/noctalia/templates/foot"
+output_path = "~/.config/foot/themes/noctalia"
+post_hook = "~/.config/foot/alpha.sh"
