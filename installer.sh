@@ -26,7 +26,7 @@ echo "[INFO] noctalia setup"
 mkdir -p ~/.config/noctalia
 cp -r templates ~/.config/noctalia/
 cp user-templates.toml ~/.config/noctalia/
-cp -r colorshemes ~/.config/noctalia/
+cp -r colorschemes ~/.config/noctalia/
 
 echo "[INFO] niri setup"
 mkdir -p ~/.config/niri
