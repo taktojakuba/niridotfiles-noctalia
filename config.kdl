@@ -1,5 +1,4 @@
 prefer-no-csd
-include "./noctalia.kdl"
 input {
     keyboard {
         // Enable numlock on startup, omitting this setting disables it.
