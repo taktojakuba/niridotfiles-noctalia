@@ -1,0 +1,26 @@
+[colors]
+alpha = 1.0
+background = 1f1e1a
+foreground = d8d2c4
+
+selection-background = 7a6a4f
+selection-foreground = f4f1ec
+
+regular0 = 2a2822
+regular1 = a06a5a
+regular2 = b5a98a
+regular3 = 9c8c6a
+regular4 = 7a6a4f
+regular5 = e9d296
+regular6 = e9ce96
+regular7 = d8d2c4
+
+bright0  = c8c2b4
+bright1  = a06a5a
+bright2  = b5a98a
+bright3  = 9c8c6a
+bright4  = 7a6a4f
+bright5  = e9d296
+bright6  = e9ce96
+bright7  = d8d2c4
+
