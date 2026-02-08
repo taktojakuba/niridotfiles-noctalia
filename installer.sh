@@ -1,36 +1,41 @@
 #!/bin/bash
-
 set -e
 
-# checking for yay
-echo "checking if yay is installed"
-if ! command -v yay &> /dev/null; then
-    echo "yay is not installed, installing it..."
+echo "[INFO] checking yay"
+if ! command -v yay &>/dev/null; then
+    echo "[INFO] yay missing, bootstrapping"
+    sudo pacman -S --needed --noconfirm git base-devel
     git clone https://aur.archlinux.org/yay.git
     cd yay
-    makepkg -si
+    makepkg -si --noconfirm
     cd ..
+    rm -rf yay
 fi
-echo "yay is installed"
 
-# install niri and noctalia-shell
-echo "installing niri and noctalia-shell"
-yay -S --needed --noconfirm niri noctalia-shell
+echo "[INFO] installing packages"
+yay -S --needed --noconfirm \
+    niri noctalia-shell rofi cava foot kew
 
-# clone repo if it doesn't exist
 if [ ! -d "niridotfiles-noctalia" ]; then
     git clone https://github.com/taktojakuba/niridotfiles-noctalia.git
 fi
 
-# cd into repo
 cd niridotfiles-noctalia
 
-# make niri directory if doesn't exist
-echo "creating directory ~/.config/niri if it doesn't exist"
-mkdir -p ~/.config/niri
+echo "[INFO] noctalia setup"
+mkdir -p ~/.config/noctalia
+cp -r templates ~/.config/noctalia/
+cp user-templates.toml ~/.config/noctalia/
+cp -r colorshemes ~/.config/noctalia/
 
-# copy config
-echo "copying config.kdl from repo folder"
+echo "[INFO] niri setup"
+mkdir -p ~/.config/niri
 cp config.kdl ~/.config/niri/
 
-echo "all done"
+echo "[INFO] dotfiles"
+cp -r fastfetch ~/.config/
+cp -r foot ~/.config/
+mkdir -p ~/.config/rofi
+cp -r rofi/* ~/.config/rofi/
+
+echo "[DONE] restart session"
