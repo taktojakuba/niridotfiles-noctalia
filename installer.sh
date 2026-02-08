@@ -14,7 +14,7 @@ fi
 
 echo "[INFO] installing packages"
 yay -S --needed --noconfirm \
-    niri noctalia-shell rofi cava foot kew
+    niri noctalia-shell rofi cava foot kew fastfetch
 
 if [ ! -d "niridotfiles-noctalia" ]; then
     git clone https://github.com/taktojakuba/niridotfiles-noctalia.git
@@ -39,3 +39,4 @@ mkdir -p ~/.config/rofi
 cp -r rofi/* ~/.config/rofi/
 
 echo "[DONE] restart session"
+t
