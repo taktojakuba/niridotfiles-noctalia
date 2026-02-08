@@ -39,4 +39,3 @@ mkdir -p ~/.config/rofi
 cp -r rofi/* ~/.config/rofi/
 
 echo "[DONE] restart session"
-t
