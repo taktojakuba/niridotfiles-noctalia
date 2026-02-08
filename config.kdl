@@ -1,4 +1,5 @@
 prefer-no-csd
+include "./noctalia.kdl"
 input {
     keyboard {
         // Enable numlock on startup, omitting this setting disables it.
@@ -20,7 +21,6 @@ cursor {
 }
 layout {
     // other values
-
     focus-ring{
       off
     }
@@ -113,11 +113,12 @@ binds {
     Mod+B { spawn "firefox";}
 
     // application launcher (noctalia)
-    Mod+A { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Mod+A { spawn-sh "/home/kuba/.config/rofi/launcher/launcher.sh"; }
+    Mod+D { spawn-sh "/home/kuba/.config/rofi/applets/bin/apps.sh"; }
     Mod+Y {spawn-sh "qs -c noctalia-shell ipc call wallpaper toggle";}
 
     // session menu (logout, reboot, shutdown)
-    Mod+Escape { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
+    Mod+Escape { spawn-sh "/home/kuba/.config/rofi/powermenu/powermenu.sh"; }
     Mod+L {spawn-sh "	qs -c noctalia-shell ipc call lockScreen lock"; }
     // audio controls (work even when session is locked)
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume increase"; }
@@ -190,4 +191,14 @@ debug {
   // Allows notification actions and window activation from Noctalia.
   honor-xdg-activation-with-invalid-serial
 }
-
+// Set the regular wallpaper on the backdrop.
+layer-rule {
+  match namespace="^noctalia-wallpaper*"
+  place-within-backdrop true
+}
+// Optionally, disable the workspace shadows in the overview.
+overview {
+  workspace-shadow {
+    off
+  }
+}
